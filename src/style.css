@@ -72,3 +72,44 @@ button:active {
     font-size: 1rem;
   }
 }
+
+.game-message {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  color: #e94560;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.restart-button {
+  background-color: #e94560;
+  margin-top: 1rem;
+  width: auto;
+  padding: 0.5rem 1.5rem;
+}
+
+.restart-button:hover {
+  background-color: #ff6b81;
+}
+
+button.clicked {
+  background-color: #16213e;
+  cursor: default;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

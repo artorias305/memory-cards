@@ -35,6 +35,11 @@ function App() {
     console.log("Clicked cards updated:", clickedCards);
   }, [clickedCards]);
 
+  const reset = () => {
+    setScore(0);
+    setClickedCards([]);
+  };
+
   const handleClick = (card) => {
     if (clickedCards.includes(card)) {
       if (score > bestScore) {
@@ -44,7 +49,12 @@ function App() {
       setClickedCards([]);
     } else {
       setClickedCards([...clickedCards, card]);
-      setScore(score + 1);
+      const newScore = score + 1;
+      setScore(newScore);
+      if (newScore === cards.length) {
+        reset();
+        alert("Congrats! you won the game!");
+      }
     }
     setCards(shuffle(cards));
   };
@@ -55,6 +65,7 @@ function App() {
         <header>
           <p>Score: {score}</p>
           <p>Best Score: {bestScore}</p>
+          <button onClick={() => reset()}>Reset Round</button>
         </header>
       </div>
       <div id="cards">
